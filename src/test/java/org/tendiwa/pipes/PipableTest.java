@@ -22,4 +22,13 @@ public final class PipableTest {
             CoreMatchers.equalTo(-5)
         );
     }
+
+    @Test
+    public void nonFluidToFluid() {
+        MatcherAssert.assertThat(
+            Fluid.of("abc")
+                .pipe(String::length),
+            CoreMatchers.equalTo(3)
+        );
+    }
 }
