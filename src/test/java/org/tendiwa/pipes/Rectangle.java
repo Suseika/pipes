@@ -21,7 +21,7 @@ public final class Rectangle implements Fluid<Rectangle> {
         }
         if (height < 1) {
             throw new IllegalArgumentException(
-                "Wrong width "+height+"; must be >= 1"
+                "Wrong height "+height+"; must be >= 1"
             );
         }
         this.x = x;
