@@ -1,6 +1,5 @@
 package org.tendiwa.pipes;
 
-import java.util.function.Function;
 import static org.tendiwa.pipes.RectangleProperties.*;
 
 /**
@@ -9,27 +8,24 @@ import static org.tendiwa.pipes.RectangleProperties.*;
  * @since 0.1.0
  */
 public final class RectangleTransformations {
-    public static Function<Rectangle, Rectangle> inflate(int d) {
-        return (r) ->
-            new Rectangle(
-                r.x() - d,
-                r.y() - d,
-                maxX.apply(r) + d * 2,
-                maxY.apply(r) + d * 2
-            );
+    public static Rectangle inflate(Rectangle r, int amount) {
+        return new Rectangle(
+            r.x() - amount,
+            r.y() - amount,
+            maxX(r) + amount * 2,
+            maxY(r) + amount * 2
+        );
+    }
+    public static Rectangle deflate(Rectangle r, int amount) {
+        return inflate(r, -amount);
     }
 
-    public static Function<Rectangle, Rectangle> deflate(int d) {
-        return inflate(-d);
-    }
-
-    public static Function<Rectangle, Rectangle> translate(int dx, int dy) {
-        return (r) ->
-            new Rectangle(
-                r.x() + dx,
-                r.y() + dy,
-                r.width(),
-                r.height()
-            );
+    public static Rectangle move(Rectangle r, int dx, int dy) {
+        return new Rectangle(
+            r.x() + dx,
+            r.y() + dy,
+            r.width(),
+            r.height()
+        );
     }
 }

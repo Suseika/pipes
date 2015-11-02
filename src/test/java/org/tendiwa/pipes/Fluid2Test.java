@@ -2,7 +2,7 @@ package org.tendiwa.pipes;
 
 import org.junit.Assert;
 import org.junit.Test;
-import static org.tendiwa.pipes.RectangleTransformations.translate;
+import static org.tendiwa.pipes.RectangleTransformations.move;
 
 /**
  * Unit tests for {@link Fluid2}.
@@ -30,16 +30,16 @@ public final class Fluid2Test {
     }
 
     private Rectangle uglyBounds(Rectangle first, Rectangle second) {
-        return RectangleCombinations.bounds.apply(
-            translate(10, 20).apply(first),
+        return RectangleCombinations.bounds(
+            move(first, 10, 20),
             second
         );
     }
 
     private Rectangle beautifulBounds(Rectangle first, Rectangle second) {
         return first
-            .pipe(translate(10, 20))
+            .pipe((r) -> move(r, 10, 20))
             .with(second)
-            .pipe(RectangleCombinations.bounds);
+            .pipe(RectangleCombinations::bounds);
     }
 }
