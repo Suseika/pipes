@@ -3,6 +3,9 @@ package org.tendiwa.pipes;
 
 import org.junit.Assert;
 import org.junit.Test;
+import static org.tendiwa.pipes.RectangleProperties.minX;
+import static org.tendiwa.pipes.RectangleTransformations.inflate;
+import static org.tendiwa.pipes.RectangleTransformations.move;
 
 /**
  * Unit tests for {@link Fluid}.
@@ -15,9 +18,9 @@ public final class FluidTest {
     public void pipes() {
         Assert.assertEquals(
             new Rectangle(0, 0, 10, 10)
-                .pipe(RectangleTransformations.inflate(2))
-                .pipe(RectangleTransformations.translate(-3, -3))
-                .pipe(RectangleProperties.minX),
+                .pipe(r -> inflate(r, 2))
+                .pipe(r -> move(r, -3, -3))
+                .pipe(r -> minX(r)),
             new Integer(-5)
         );
     }
