@@ -7,18 +7,18 @@ package org.tendiwa.pipes;
  */
 public final class RectangleProperties {
     public static int maxX(Rectangle r) {
-        return r.x() + r.width() - 1;
+        return r.x + r.width - 1;
     }
 
     public static int maxY(Rectangle r) {
-        return r.y() + r.height() - 1;
+        return r.y + r.height - 1;
     }
 
     public static int minX(Rectangle r) {
-        return r.x();
+        return r.x;
     }
 
     public static int minY(Rectangle r) {
-        return r.y();
+        return r.y;
     }
 }
