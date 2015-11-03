@@ -10,22 +10,23 @@ import static org.tendiwa.pipes.RectangleProperties.*;
 public final class RectangleTransformations {
     public static Rectangle inflate(Rectangle r, int amount) {
         return new Rectangle(
-            r.x() - amount,
-            r.y() - amount,
+            r.x - amount,
+            r.y - amount,
             maxX(r) + amount * 2,
             maxY(r) + amount * 2
         );
     }
+
     public static Rectangle deflate(Rectangle r, int amount) {
         return inflate(r, -amount);
     }
 
     public static Rectangle move(Rectangle r, int dx, int dy) {
         return new Rectangle(
-            r.x() + dx,
-            r.y() + dy,
-            r.width(),
-            r.height()
+            r.x + dx,
+            r.y + dy,
+            r.width,
+            r.height
         );
     }
 }
